@@ -8,8 +8,8 @@ badr::require_quite(c(
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
-load("data.Rdata")
-load("model_pois.Rdata")
+load("model/data.Rdata")
+load("model/model_pois.Rdata")
 
 #---------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ season17 <- llply(1:34,
                            i)))
 
 
-empty <- extract_info_pre(season17[[22]])
+empty <- extract_info_pre(season17[[23]])
 samps <- as.data.frame(fit) %>%
 {.[(nrow(.)/2+1):nrow(.),]}
 

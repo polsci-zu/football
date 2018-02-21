@@ -8,7 +8,7 @@ badr::require_quite(c(
 rstan_options(auto_write = TRUE)
 options(mc.cores = parallel::detectCores())
 
-load("data.Rdata")
+load("model/data.Rdata")
 # Teams --------------------------------------------------------------------
 
 #teams <- as.vector (unlist (read.table ("soccerpowerindex.txt", header=FALSE)))
@@ -33,7 +33,7 @@ data <- c("nteams","ngames","team1","score1","team2","score2","prior_score")
 
 #--------------------------------------------------------------------------
 
-fit <- stan("model_pois_0.04.stan", data=data, chains=4, iter=4000)
+fit <- stan("model/model_pois_0.04.stan", data=data, chains=4, iter=4000)
 #fit <- stan("model_pois_0.06(correlated).stan", data=data, chains=4, iter=400)
 print(fit,pars = c("baseline","b_prior","home","skill"))
-save(fit,file = "model_pois.Rdata")
+save(fit,file = "model/model_pois.Rdata")

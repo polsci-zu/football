@@ -8,7 +8,7 @@ badr::require_quite(c(
 #start <- list("matchday" = 1,"season" = 17)
 #end <- list("matchday" = 21,"season" = 18)
 
-source("00_function.R")
+source("model/00_function.R")
 #------------------------------------------------------------------
 
 start <- list("matchday" = 1,"season" = 16)
@@ -35,9 +35,9 @@ data_table%<>% within({
   }
   ) 
 data_table$season
-table(seasons$season)
-s <- seasons[seasons$season == "season16",]
+table(data_table$season)
 
+s <- data_table[data_table$season == "season16",]
 
 seasons <- data_table
 # -----------------------------------------------------------------------
@@ -63,4 +63,4 @@ team_ranking <- c("Bayern München",
            "VfB Stuttgart",
            "Hannover 96")
 
-save(team_ranking,seasons,file = "data.Rdata")
+save(team_ranking,seasons,file = "model/data.Rdata")
