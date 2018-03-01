@@ -141,7 +141,11 @@ simulate_matchday <- function(empty,samps){
       as_tibble() %>%
       group_by(goals1,goals2) %>%
       summarise("n" = n()/nrow(samps)) %>%
-      arrange(desc(n))
+      arrange(desc(n)) %>% 
+      data.frame(team1 = team_n[1],
+                 team2 = team_n[2],
+                 MatchID = empty[i,c("MatchID")])
+    
     res[[i]] <- probs
   }
   names(res) <- paste0(empty$Team1," - ",empty$Team2) 
