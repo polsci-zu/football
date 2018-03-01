@@ -12,7 +12,7 @@ source("model/00_function.R")
 #------------------------------------------------------------------
 
 start <- list("matchday" = 1,"season" = 16)
-end <- list("matchday" = 21,"season" = 17)
+end <- list("matchday" = 23,"season" = 17)
 
 data_list <- footballr(start,end)
 
